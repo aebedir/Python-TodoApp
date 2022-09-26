@@ -7,8 +7,9 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/BİLKOM/Desktop/Todo A
 db = SQLAlchemy(app)
 
 @app.route("/")
-def index():   
-    return render_template("index.html")
+def index():
+    todos = Todo.query.all()   
+    return render_template("index.html",todos=todos)
 
 @app.route("/add",methods = ["POST"])
 def addTodo():
