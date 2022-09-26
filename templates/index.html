@@ -24,7 +24,12 @@
         
 
         </form>
-
+        {% if todos==[] %}
+        <div class="alert alert-warning" role="alert">
+            Herhangi bir todo bulunmamaktadır.
+          </div>
+        
+        {% else %}
         <table class="table">
             <thead>
               <tr>
@@ -53,6 +58,9 @@
               {% endfor %}
             </tbody>
           </table>
+
+        {% endif %}
+        
 
 
 
