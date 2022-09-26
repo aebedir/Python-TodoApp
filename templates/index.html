@@ -40,8 +40,14 @@
               <tr>
                 <th scope="row">{{todo.ip}}</th>
                 <td>{{todo.title}}</td>
-                <td>{{todo.complete}}</td>
-                <td><a href="/complete/{{todo.id}}" class = btn btn-danger>Tamamla</a></td>
+                {% if todo.complete==False %}
+                <td>Tamamlanmadı</td>
+                {% else %}
+                <td>Tamamlandı</td>
+                {% endif %}
+             
+                <td><a href="/complete/{{todo.id}}" class = "btn btn-danger">Tamamla</a></td>
+                <td><a href="/delete/{{todo.id}}" class = "btn btn-danger">Sil</a></td>
               </tr>
               
               {% endfor %}
